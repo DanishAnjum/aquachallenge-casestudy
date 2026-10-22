@@ -1,4 +1,4 @@
-# AQUA Platform — Technical Hiring Challenge: Self-Pruning Neural Network
+# AQUA Platform — Technical Challenge: Self-Pruning Neural Network
 
 Custom deep-learning framework and self-pruning neural network built from scratch in pure Python and NumPy for Tredence Inc.
 
@@ -16,6 +16,6 @@ This repository contains a complete, zero-dependency (barring NumPy and Matplotl
 Clone the repository and install dependencies using `pip`:
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/aqua-self-pruning-challenge.git](https://github.com/YOUR_USERNAME/aqua-self-pruning-challenge.git)
-cd aqua-self-pruning-challenge
+git clone [https://github.com/DanishAnjum/aquachallenge-casestudy.git](https://github.com/DanishAnjum/aquachallenge-casestudy.git)
+cd aquachallenge-casestudy
 pip install -r requirements.txt
