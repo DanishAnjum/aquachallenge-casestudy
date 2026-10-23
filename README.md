@@ -10,6 +10,14 @@ This repository contains a complete, zero-dependency (barring NumPy and Matplotl
 4. **Rigorous Pareto evaluation** comparing saliency pruning against pure magnitude pruning across multiple random seeds.
 
 
+Key Features
+Zero-Dependency Autodiff: Custom reverse-mode automatic differentiation engine supporting dynamic graph construction and backpropagation.
+Honest Structural Masking: Binary masks ($M \in \{0, 1\}$) integrated into the forward pass and backed by rigorous chain-rule gradient scaling ($\nabla_W \mathcal{L} = \nabla_{\text{active}} \mathcal{L} \odot M$).
+First-Order Taylor Saliency: Approximates weight importance via $|W \cdot \nabla_W \mathcal{L}|$ with global top-k pooling, stable tie-breaking (np.argsort with kind='stable'), and cubic sparsity scheduling.
+Permanent Pruning & Optimizer State Reset: Locks pruned weights permanently at zero and clears Adam momentum ($m$) and velocity ($v$) states for newly pruned parameters.
+Rigorous Empirical Evaluation: Paired 5-seed batch schedules comparing Taylor Saliency against Global Magnitude Pruning, complete with automated CSV logging and error-bar plotting.
+
+
 ---
 
 ## Project Structure
@@ -38,3 +46,17 @@ Clone the repository and install dependencies using `pip`:
 git clone [https://github.com/DanishAnjum/aquachallenge-casestudy.git](https://github.com/DanishAnjum/aquachallenge-casestudy.git)
 cd aquachallenge-casestudy
 pip install -r requirements.txt
+
+Run MLP
+python train_mlp.py
+
+Run Single Training & Baseline Experiment
+python run_self_prune.py
+
+Run 5-Seed Pareto Sweep & Generate Visualizations
+python pareto_eval.py
+
+Outputs will be saved directly to the results/ directory.
+
+
+
